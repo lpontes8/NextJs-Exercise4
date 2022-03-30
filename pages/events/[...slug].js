@@ -13,9 +13,17 @@ function FilteredEventsPage(props) {
 
   const filterData = router.query.slug;
 
+
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+
   const { data, error } = useSWR(
-    'url_aqui'
+
+    "url_aqui",
+
+    fetcher
+
   );
+
 
   useEffect(() => {
     if (data) {
